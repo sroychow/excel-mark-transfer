@@ -26,10 +26,13 @@ document.getElementById("runScript").addEventListener("click", async () => {
   const selectedScript = document.getElementById("scriptSelect").value;
 
   try {
+    document.getElementById("status").innerText = "Loading packages...";
+    await pyodide.loadPackage(["pandas", "openpyxl"]);
+
     document.getElementById("status").innerText = "Running script...";
     const scriptResponse = await fetch(selectedScript);
     const scriptText = await scriptResponse.text();
-
+    
     const inputArrayBuffer = await inputFile.arrayBuffer();
     const targetArrayBuffer = await targetFile.arrayBuffer();
 
@@ -89,4 +92,3 @@ stdout + "\\n" + stderr
 });
 
 loadPyodideAndPackages();
-
