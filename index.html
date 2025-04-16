@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Excel Marker Tool</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <h1>Excel Mark Transfer</h1>
+
+  <label for="scriptSelect">Select Script:</label><br>
+  <select id="scriptSelect">
+    <option value="read_socsphysics_orange.py">SOCS_CO to Orange</option>
+    <option value="read_socsphysics_internal.py">SOCS_CO to SOCS_internal</option>
+  </select><br><br>
+
+  <input type="file" id="inputFile" accept=".xlsx"/>
+  <label>Upload Input Excel</label><br><br>
+
+  <input type="file" id="targetFile" accept=".xlsx"/>
+  <label>Upload Target Excel</label><br><br>
+
+  <button id="runScript">Copy Marks</button>
+  <a id="downloadFile"><button disabled>Download Updated Excel</button></a>
+
+  <p id="status"></p>
+
+  <pre id="pyOutput" style="background:#f5f5f5; padding:10px; border:1px solid #ccc; max-height:300px; overflow:auto;"></pre>
+
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
+
